@@ -1,19 +1,19 @@
 {% set name = "dask-jobqueue" %}
-{% set version = "0.8.2" %}
-{% set sha256 = "d35407a05a0534347c5d958ae749b9f8535bec529857d013b6e5649cde43914a" %}
+{% set version = "0.9.0" %}
+{% set sha256 = "494ef64b7bb3848c7d72ed334c288030caca6a09dca54cfaa3f395f4ba7f5c47" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   script:
-    - cp {{ RECIPE_DIR }}/versioneer.py {{ SRC_DIR }}/ 
+    - cp {{ RECIPE_DIR }}/versioneer.py {{ SRC_DIR }}/
     - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   skip: true # [py<38]
 

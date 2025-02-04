@@ -13,7 +13,6 @@ source:
 build:
   number: 0
   script:
-    - cp {{ RECIPE_DIR }}/versioneer.py {{ SRC_DIR }}/
     - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   skip: true # [py<310]
 
